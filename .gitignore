@@ -1,5 +1,3 @@
 __pycache__
-# 忽略所有 migrations 文件夹
 */migrations/*
-# 但不忽略 __init__.py 文件
 !*/migrations/__init__.py
