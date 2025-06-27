@@ -1,9 +1,32 @@
+from rest_framework import viewsets
+
+# 请替换为实际的模型导入
+from .serializers import (
+    EmailConfigSerializer
+)
+
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 
 from .form import EmailConfigForm
 from .models import EmailConfig
+
+
+class BaseModelViewSet(viewsets.ModelViewSet):
+    '''
+    基础视图集，可在此添加通用逻辑
+    '''
+    pass
+
+
+# 自动生成的模型视图集
+
+class EmailConfigViewSet(BaseModelViewSet):
+    queryset = EmailConfig.objects.all()
+    serializer_class = EmailConfigSerializer
+
+
 
 
 @csrf_exempt
