@@ -21,7 +21,7 @@ class EmailConfigForm(forms.ModelForm):
 
     class Meta:
         model = EmailConfig
-        fields = ['sender_username', 'sender_pwd', 'receive_list']
+        fields = ['sender_username', 'sender_pwd', 'receive_list', 'name']
         labels = {
             'sender_username': '发件人邮箱',
             'sender_pwd': '发件人密码',  # 新增标签定义

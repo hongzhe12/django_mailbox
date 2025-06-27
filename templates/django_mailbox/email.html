@@ -156,6 +156,19 @@
             <form id="emailForm" action="{% url 'email_config' %}" method="post">
                 {% csrf_token %}
 
+
+            <div class="form-group">
+                    <label for="name">配置名称</label>
+                    <input type="text" id="name" name="name"
+                           value="{{ form.name.value|default:'' }}" required
+                           class="form-control{% if form.name.errors %} error{% endif %}"
+                           placeholder="请输入配置名称">
+                    {% if form.name.errors %}
+                        <div class="error-message">{{ form.name.errors.0 }}</div>
+                    {% endif %}
+                </div>
+            
+
                 <div class="form-group">
                     <label for="sender_username">发件人邮箱</label>
                     <input type="email" id="sender_username" name="sender_username"
@@ -189,6 +202,8 @@
                         <div class="error-message">{{ form.receive_list.errors.0 }}</div>
                     {% endif %}
                 </div>
+
+
 
                 <button type="submit" class="btn">提交配置</button>
             </form>
