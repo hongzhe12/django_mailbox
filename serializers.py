@@ -37,4 +37,3 @@ class SendMailSerializer(serializers.Serializer):
     subject = serializers.CharField(max_length=200)
     content = serializers.CharField()
     filepath = serializers.CharField(required=False, allow_blank=True, allow_null=True)
-
