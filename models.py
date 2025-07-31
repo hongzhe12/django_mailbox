@@ -7,7 +7,6 @@ class EmailConfig(models.Model):
     """邮件配置模型，存储邮件发送相关配置"""
     name = models.CharField(
         max_length=100,
-        unique=True,
         verbose_name="配置名称",
         help_text="用于标识该邮件配置的名称或方案名"
     )

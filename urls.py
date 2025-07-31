@@ -1,9 +1,8 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import (
-    EmailConfigViewSet, index, SendMailAPIView
+    SendMailAPIView, EmailConfigViewSet
 )
-
 
 router = DefaultRouter()
 
@@ -11,9 +10,7 @@ router = DefaultRouter()
 
 router.register(r'emailconfig', EmailConfigViewSet, basename='emailconfig')
 
-
 urlpatterns = [
-    path('', index, name='email_config'),
-    path('api/', include(router.urls)),
     path('send_mail/', SendMailAPIView.as_view()),
+    path('', include(router.urls)),
 ]
